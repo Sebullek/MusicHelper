@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">MusicHelper</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="Notes">
+        <item>-</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>A</item>
+        <item>H</item>
+    </string-array>
+
+    <string-array name="Chords">
+        <item>-</item>
+        <item>Major</item>
+        <item>minor</item>
+        <item>dim</item>
+    </string-array>
 </resources>
