@@ -14,8 +14,7 @@ import android.widget.Spinner;
 
 public class FindKey extends AppCompatActivity {
 
-    Spinner sp_note_1;
-    Spinner sp_chord_1;
+
 
     Spinner[] spinnersNote = new Spinner[6];
     Spinner[] spinnersChord = new Spinner[6];
@@ -41,6 +40,8 @@ public class FindKey extends AppCompatActivity {
         for (Spinner s: spinnersNoteId) {
             s = ?;
         }*/
+
+        
         ArrayAdapter<String> adpNotes= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
                 getResources().getStringArray(R.array.Notes));
         adpNotes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -59,23 +60,7 @@ public class FindKey extends AppCompatActivity {
             spinnersNote[i].setOnItemSelectedListener(OnItemEvent);
             spinnersChord[i].setOnItemSelectedListener(OnItemEvent);
         }
-        /*
-        spinnersNote[0] =  (Spinner) findViewById(R.id.spNote1);
-        ArrayAdapter<String> adp1= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
-                getResources().getStringArray(R.array.Notes));
-        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnersNote[0].setAdapter(adp1);
 
-
-        spinnersChord[0] = (Spinner) findViewById(R.id.spChord1);
-        ArrayAdapter<String> adp2= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
-                getResources().getStringArray(R.array.Chords));
-        adp2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnersChord[0].setAdapter(adp2);
-
-        spinnersNote[0].setOnItemSelectedListener(OnItemEvent);
-        spinnersChord[0].setOnItemSelectedListener(OnItemEvent);
-*/
     }
 
     private AdapterView.OnItemSelectedListener OnItemEvent = new AdapterView.OnItemSelectedListener() {
@@ -83,36 +68,31 @@ public class FindKey extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
             //Log.i(TAG, "parent.getSelectedItem() = " + adapterView.getSelectedItem());
 
-
+            //Find Spinner
             for (int y = 0 ; y < 2 ; y++) {
                 if (adapterView.getId() == spinnersNoteId[y]) {
+
                     Log.i(TAG, "spinnersNoteId["+y+"]");
+
+                    if (spinnersNote[y].getSelectedItem().equals("-")) {
+                        //It is some SpinnerNote
+
+                        //Log.i(TAG, "PUSTO");
+                        spinnersChord[y].setSelection(0);
+                        spinnersChord[y].setEnabled(false);
+                    }
+                    else {
+                        spinnersChord[y].setEnabled(true);
+                        //sp_chord_1.setSelection(1);
+                    }
                 } else {
                     if (adapterView.getId() == spinnersChordId[y]) {
+                        //It is some SpinnerChord
+
                         Log.i(TAG, "spinnersChord[" + y + "]");
                     }
                 }
             }
-            /*
-            switch (adapterView.getId())
-            {
-                case R.id.spNote1:
-                    //Log.i(TAG, "sp_note_1 OnItemSelectedListener");
-
-                    if (spinnersNote[0].getSelectedItem().equals("-")) {
-                        //Log.i(TAG, "PUSTO");
-                        spinnersChord[0].setSelection(0);
-                        spinnersChord[0].setEnabled(false);
-                    }
-                    else {
-                        spinnersChord[0].setEnabled(true);
-                        //sp_chord_1.setSelection(1);
-                    }
-                    break;
-                case R.id.spChord1:
-                    //Log.i(TAG, "sp_chord_1 OnItemSelectedListener");
-                    break;
-            }*/
         }
 
         @Override
