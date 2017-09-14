@@ -5,11 +5,16 @@
     <string-array name="Notes">
         <item>-</item>
         <item>C</item>
+        <item>C#</item>
         <item>D</item>
+        <item>D#</item>
         <item>E</item>
         <item>F</item>
+        <item>F#</item>
         <item>G</item>
+        <item>G#</item>
         <item>A</item>
+        <item>A#</item>
         <item>H</item>
     </string-array>
 

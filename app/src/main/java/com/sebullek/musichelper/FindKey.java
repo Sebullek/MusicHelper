@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 /**
  * Created by Sebullek on 15.05.2017.
@@ -25,23 +27,35 @@ public class FindKey extends AppCompatActivity {
     private static final String TAG = "Scales";
 
 
+    private static final String DEFAULD_SPINNER_NOTE_ID = "spNote";
+    private static final String DEFAULD_SPINNER_CHORD_ID = "spChord";
+
+
+    Button buttonGetScale;
+    TextView textVewScale;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_findkey);
 
-        spinnersNoteId[0] = R.id.spNote1;
-        spinnersNoteId[1] = R.id.spNote2;
 
-        spinnersChordId[0] = R.id.spChord1;
-        spinnersChordId[1] = R.id.spChord2;
+
+        for (int i = 0 ; i < 6 ; i++) {
+
+            //For objects where ID's names are the same with different numbers
+            //spinnersNoteId[0] = R.id.spNote1;
+            //spinnersChordId[0] = R.id.spChord1;
+            spinnersNoteId[i] = getResources().getIdentifier(DEFAULD_SPINNER_NOTE_ID + (i+1), "id", "com.sebullek.musichelper");
+            spinnersChordId[i] = getResources().getIdentifier(DEFAULD_SPINNER_CHORD_ID + (i+1), "id", "com.sebullek.musichelper");
+        }
 
         /*
         for (Spinner s: spinnersNoteId) {
             s = ?;
         }*/
 
-        
+
         ArrayAdapter<String> adpNotes= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
                 getResources().getStringArray(R.array.Notes));
         adpNotes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -50,7 +64,7 @@ public class FindKey extends AppCompatActivity {
                 getResources().getStringArray(R.array.Chords));
         adpChords.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        for (int i = 0 ; i < 2 ; i++) {
+        for (int i = 0 ; i < 6 ; i++) {
             spinnersNote[i] =  (Spinner) findViewById(spinnersNoteId[i]);
             spinnersNote[i].setAdapter(adpNotes);
 
@@ -61,6 +75,10 @@ public class FindKey extends AppCompatActivity {
             spinnersChord[i].setOnItemSelectedListener(OnItemEvent);
         }
 
+
+        buttonGetScale = (Button) findViewById(R.id.bGetScale);
+        textVewScale = (TextView) findViewById(R.id.tvScale);
+        buttonGetScale.setOnClickListener(GetScale);
     }
 
     private AdapterView.OnItemSelectedListener OnItemEvent = new AdapterView.OnItemSelectedListener() {
@@ -69,7 +87,7 @@ public class FindKey extends AppCompatActivity {
             //Log.i(TAG, "parent.getSelectedItem() = " + adapterView.getSelectedItem());
 
             //Find Spinner
-            for (int y = 0 ; y < 2 ; y++) {
+            for (int y = 0 ; y < 6 ; y++) {
                 if (adapterView.getId() == spinnersNoteId[y]) {
 
                     Log.i(TAG, "spinnersNoteId["+y+"]");
@@ -98,6 +116,30 @@ public class FindKey extends AppCompatActivity {
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
 
+        }
+    };
+
+    private View.OnClickListener GetScale = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+            String Scale = "New Scale";
+
+            for (int i = 0 ; i < 6 ; i++) {
+                if (!spinnersNote[i].getSelectedItem().toString().equals("-")) {
+                    Scale += " " + spinnersNote[i].getSelectedItem().toString()/* + spinnersChord[i].getSelectedItem().toString()*/;
+
+                    if (!spinnersChord[i].getSelectedItem().toString().equals("Major")) {
+                        if (!spinnersChord[i].getSelectedItem().toString().equals("minor")) {
+                            Scale += "dim";
+                        } else {
+                            Scale += "m";
+                        }
+                    }
+                }
+            }
+
+            textVewScale.setText(Scale);
         }
     };
 }
