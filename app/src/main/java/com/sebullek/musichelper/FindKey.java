@@ -1,6 +1,7 @@
 package com.sebullek.musichelper;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.Arrays;
 
 /**
  * Created by Sebullek on 15.05.2017.
@@ -119,27 +122,33 @@ public class FindKey extends AppCompatActivity {
         }
     };
 
+
+
+
     private View.OnClickListener GetScale = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
-            String Scale = "New Scale";
+            Scale oScale = new Scale();
 
             for (int i = 0 ; i < 6 ; i++) {
-                if (!spinnersNote[i].getSelectedItem().toString().equals("-")) {
-                    Scale += " " + spinnersNote[i].getSelectedItem().toString()/* + spinnersChord[i].getSelectedItem().toString()*/;
-
-                    if (!spinnersChord[i].getSelectedItem().toString().equals("Major")) {
-                        if (!spinnersChord[i].getSelectedItem().toString().equals("minor")) {
-                            Scale += "dim";
-                        } else {
-                            Scale += "m";
-                        }
-                    }
-                }
+                oScale.addChord(spinnersNote[i].getSelectedItem().toString(),
+                        spinnersChord[i].getSelectedItem().toString());
             }
 
-            textVewScale.setText(Scale);
+            String sScale = oScale.getChords();
+
+
+            String allScales = "";
+            for (int i = 0 ; i < oScale.allScales.length ; i++) {
+                for (int j = 0; j < oScale.allScales[i].length; j++) {
+                    allScales += oScale.allScales[i][j];
+                }
+                allScales += " \n ||";
+            }
+            //Log.i(TAG, "allScales = " + oScale.getScale());
+
+            textVewScale.setText("SCALES: " + oScale.getKey());
         }
     };
 }
