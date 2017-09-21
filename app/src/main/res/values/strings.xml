@@ -24,4 +24,12 @@
         <item>minor</item>
         <item>dim</item>
     </string-array>
+
+
+    <string-array name="Scales">
+        <item>-</item>
+        <item>Major</item>
+        <item>minor</item>
+    </string-array>
+
 </resources>

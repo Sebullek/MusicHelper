@@ -20,19 +20,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="1st chord:" />
 
         <Spinner
             android:id="@+id/spNote1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spChord1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Space
             android:layout_width="wrap_content"
@@ -57,19 +60,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="2st chord:" />
 
         <Spinner
             android:id="@+id/spNote2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spChord2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Space
             android:layout_width="wrap_content"
@@ -94,19 +100,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="3st chord:" />
 
         <Spinner
             android:id="@+id/spNote3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spChord3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Space
             android:layout_width="wrap_content"
@@ -131,19 +140,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="4st chord:" />
 
         <Spinner
             android:id="@+id/spNote4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spChord4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Space
             android:layout_width="wrap_content"
@@ -168,19 +180,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="5st chord:" />
 
         <Spinner
             android:id="@+id/spNote5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spChord5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Space
             android:layout_width="wrap_content"
@@ -205,19 +220,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="6st chord:" />
 
         <Spinner
             android:id="@+id/spNote6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spChord6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center" />
 
         <Space
             android:layout_width="wrap_content"
@@ -233,19 +251,21 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/bGetScale"
+            android:id="@+id/bGetKey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Get key" />
 
         <TextView
-            android:id="@+id/tvScale"
+            android:id="@+id/tvKey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Scale"
-            android:textAlignment="center" />
+            android:gravity="center"
+            android:text="Key"
+            android:textAlignment="center"
+            android:textSize="35sp" />
 
     </LinearLayout>
 

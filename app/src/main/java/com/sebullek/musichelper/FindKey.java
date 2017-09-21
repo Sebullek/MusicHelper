@@ -34,8 +34,8 @@ public class FindKey extends AppCompatActivity {
     private static final String DEFAULD_SPINNER_CHORD_ID = "spChord";
 
 
-    Button buttonGetScale;
-    TextView textVewScale;
+    Button buttonGetKey;
+    TextView textVewKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +79,9 @@ public class FindKey extends AppCompatActivity {
         }
 
 
-        buttonGetScale = (Button) findViewById(R.id.bGetScale);
-        textVewScale = (TextView) findViewById(R.id.tvScale);
-        buttonGetScale.setOnClickListener(GetScale);
+        buttonGetKey = (Button) findViewById(R.id.bGetKey);
+        textVewKey = (TextView) findViewById(R.id.tvKey);
+        buttonGetKey.setOnClickListener(GetKey);
     }
 
     private AdapterView.OnItemSelectedListener OnItemEvent = new AdapterView.OnItemSelectedListener() {
@@ -122,10 +122,7 @@ public class FindKey extends AppCompatActivity {
         }
     };
 
-
-
-
-    private View.OnClickListener GetScale = new View.OnClickListener() {
+    private View.OnClickListener GetKey = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
@@ -148,7 +145,7 @@ public class FindKey extends AppCompatActivity {
             }
             //Log.i(TAG, "allScales = " + oScale.getScale());
 
-            textVewScale.setText("SCALES: " + oScale.getKey());
+            textVewKey.setText("Key: " + oScale.getKey());
         }
     };
 }

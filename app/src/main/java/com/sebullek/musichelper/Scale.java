@@ -16,7 +16,7 @@ public class Scale {
 
     private int[] minor_interval = {0, 2, 1, 2, 2, 1, 2, 2};
 
-    private String scale;
+    private String[] scale = new String[8];
 
     public String[][] allScales = new String [12][12];
 
@@ -100,7 +100,7 @@ public class Scale {
 
     public String getKey() {
 
-        scale = "";
+        String key = "";
         for (int i = 0 ; i < allScales.length ; i++) {
 
             //Log.i(TAG, "SCALE nr " + i);
@@ -119,13 +119,64 @@ public class Scale {
                     }
                 }
                 if (j == 11) {
-                    scale += " " + notes[i];
+                    key += " " + notes[i];
                 }
             }
         }
-        if (scale.equals("")) {
-            scale = "ERROR!";
+        if (key.equals("")) {
+            key = "ERROR!";
         }
-        return scale;
+        return key;
+    }
+
+    public String getScale(String note, String chord) {
+
+
+        int index = 0;
+
+        //Find the note;
+        for (int i = 0 ; i < notes.length ; i++) {
+            if(notes[i].equals(note)) {
+                index = i;
+                break;
+            }
+        }
+
+
+        int[] intervals = new int[8];
+
+        switch (chord) {
+            case "Major":
+                for (int i = 0 ; i < major_interval.length ; i++) {
+                    intervals[i] = major_interval[i];
+                }
+                break;
+            case "minor":
+                for (int i = 0 ; i < major_interval.length ; i++) {
+                    intervals[i] = minor_interval[i];
+                }
+                break;
+        }
+        int copy_index = index;
+        for (int i = 0 ; i < scale.length ; i++) {
+            scale[i] = notes[index];
+            if(i != (scale.length - 1)) {
+                index += intervals[i+1];
+            } else {
+                index = copy_index;
+            }
+
+            if (index > 11)
+            {
+                index -= 12;
+            }
+
+        }
+
+        String finalScale = "";
+        for (int i = 0 ; i < scale.length ; i++) {
+            finalScale += scale[i] + " ";
+        }
+        return finalScale;
     }
 }
