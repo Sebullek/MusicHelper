@@ -30,6 +30,8 @@
         <item>-</item>
         <item>Major</item>
         <item>minor</item>
+        <item>blues</item>
+        <item>minor pentatonic</item>
     </string-array>
 
 </resources>

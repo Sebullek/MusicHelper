@@ -16,7 +16,9 @@ public class Scale {
 
     private int[] minor_interval = {0, 2, 1, 2, 2, 1, 2, 2};
 
-    private String[] scale = new String[8];
+    private int[] blues_interval = {0, 3, 2, 1, 1, 3, 2};
+    private int[] minor_pentatonic_interval = {0, 3, 2, 2, 3, 2};
+
 
     public String[][] allScales = new String [12][12];
 
@@ -143,20 +145,44 @@ public class Scale {
         }
 
 
-        int[] intervals = new int[8];
+        int[] intervals;
 
         switch (chord) {
             case "Major":
+                intervals = new int[major_interval.length];
                 for (int i = 0 ; i < major_interval.length ; i++) {
                     intervals[i] = major_interval[i];
                 }
                 break;
             case "minor":
-                for (int i = 0 ; i < major_interval.length ; i++) {
+                intervals = new int[minor_interval.length];
+                for (int i = 0 ; i < minor_interval.length ; i++) {
                     intervals[i] = minor_interval[i];
                 }
                 break;
+            case "blues":
+                intervals = new int[blues_interval.length];
+                for (int i = 0 ; i < blues_interval.length ; i++) {
+                    intervals[i] = blues_interval[i];
+                }
+                break;
+            case "minor pentatonic":
+                intervals = new int[minor_pentatonic_interval.length];
+                for (int i = 0 ; i < minor_pentatonic_interval.length ; i++) {
+                    intervals[i] = minor_pentatonic_interval[i];
+                }
+                break;
+            default:
+                intervals = new int[8];
+                break;
         }
+
+
+
+
+        String[] scale = new String[intervals.length];
+
+
         int copy_index = index;
         for (int i = 0 ; i < scale.length ; i++) {
             scale[i] = notes[index];
