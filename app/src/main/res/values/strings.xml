@@ -15,12 +15,12 @@
         <item>G#</item>
         <item>A</item>
         <item>A#</item>
-        <item>H</item>
+        <item>B</item>
     </string-array>
 
     <string-array name="Chords">
         <item>-</item>
-        <item>Major</item>
+        <item>major</item>
         <item>minor</item>
         <item>dim</item>
     </string-array>
@@ -28,10 +28,11 @@
 
     <string-array name="Scales">
         <item>-</item>
-        <item>Major</item>
+        <item>major</item>
         <item>minor</item>
         <item>blues</item>
         <item>minor pentatonic</item>
+        <item>major pentatonic</item>
     </string-array>
 
 </resources>

@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".Scales"></activity>
         <activity android:name=".FindKey"></activity>
+        <activity android:name=".TransposeChords"></activity>
     </application>
 
 </manifest>

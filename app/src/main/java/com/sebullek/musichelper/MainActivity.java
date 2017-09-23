@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button b_scales;
     private Button b_find_key;
+    private Button b_transpose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         b_scales = (Button)findViewById(R.id.b_scales);
         b_find_key = (Button)findViewById(R.id.b_findkey);
+        b_transpose = (Button)findViewById(R.id.b_transpose);
 
         b_scales.setOnClickListener(this);
         b_find_key.setOnClickListener(this);
+        b_transpose.setOnClickListener(this);
     }
 
 
@@ -42,6 +45,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.b_findkey:
 
                 intent = new Intent(this, FindKey.class);
+                startActivity(intent);
+
+                break;
+
+            case R.id.b_transpose:
+
+                intent = new Intent(this, TransposeChords.class);
                 startActivity(intent);
 
                 break;
